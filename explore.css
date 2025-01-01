@@ -8,12 +8,18 @@
     box-sizing: border-box;
 }
 
+body{
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)) , url(NYD.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 header{
     width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)) , url(NYD.jpg);
-    background-size: cover;
     font-family: 'Poppins', sans-serif;
+    position: fixed;
+    z-index: 4;
 }
 
 nav{
@@ -23,6 +29,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: rgba(0, 0, 0, 0.962);
 }
 
 .logo{
@@ -58,29 +65,29 @@ nav{
 
 .content{
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     max-width: 900px;
-    width: 90%;
+    width: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    top: 15%;
+    left: 15%;
+    transform: translate(3%, 3%);
+    z-index: 0;
+    margin-top: 6px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 3-4 imagens por linha */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     justify-content: center;
 }
 
-/* Imagens da galeria */
 .image img {
     width: 100%;
-    height: 150px; /* Todas as imagens serão quadradas */
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
@@ -88,12 +95,11 @@ nav{
 }
 
 .image img:hover {
-    transform: scale(1.05); /* Zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
-/* Modal (para ampliar imagem) */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -120,16 +126,4 @@ nav{
     font-weight: bold;
     cursor: pointer;
 }
-
-.background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
-    z-index: 1; /* Certifique-se de que isso está correto */
-}
-
 
