@@ -2,108 +2,144 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Mai&display=swap');
 
-*{
+/* Variáveis globais */
+:root {
+    --cor-primaria: #cd5c5c;
+    --cor-texto-claro: #fff;
+    --cor-texto-escuro: #000;
+    --bg-nav: rgba(0, 0, 0, 0.962);
+    --bg-conteudo: rgba(255, 255, 255, 0.9);
+    --sombra-padrao: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    --borda-raio: 10px;
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+/* Reset padrão */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)) , url(NYD.jpg);
+body {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url(NYD.jpg);
     background-size: cover;
     background-attachment: fixed;
+    font-family: var(--fonte-principal);
+    min-height: 100vh;
 }
 
-header{
+/* Cabeçalho e Navegação */
+header {
     width: 100%;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    height: auto;
+    min-height: 70px;
+    font-family: var(--fonte-principal);
     position: fixed;
-    z-index: 4;
+    z-index: 10;
 }
 
-nav{
+nav {
     width: 100%;
-    height: 100px;
-    color: #fff;
+    height: auto;
+    min-height: 70px;
+    color: var(--cor-texto-claro);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(0, 0, 0, 0.962);
+    background: var(--bg-nav);
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
-.logo{
+.logo {
     font-size: 2em;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
 }
 
-.menu a{
+.logo img {
+    max-width: 115px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto-claro);
+    padding: 8px 15px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-.menu a:hover{
-    border: 1px solid #cd5c5c;
+.menu a:hover {
+    border: 1px solid var(--cor-primaria);
     background: transparent;
 }
 
-.loja a{
+.loja a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto-claro);
+    padding: 8px 15px;
+    font-size: 18px;
     border-radius: 8px; 
-    background: indianred;
+    background: var(--cor-primaria);
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-.loja a:hover{
-    border: 1px solid indianred;
+.loja a:hover {
+    border: 1px solid var(--cor-primaria);
     background: transparent;
 }
 
-/*MUDA AQUI*/
-
+/* Conteúdo Principal */
 .background {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--bg-conteudo);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: var(--borda-raio);
     max-width: 900px;
-    width: 100%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    box-shadow: var(--sombra-padrao);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0;
-    margin-top: 30%;
+    z-index: 1;
+    margin-top: 350px;
 }
 
 .content h1 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--fonte-principal);
     font-size: 1.5rem;
     margin-top: 10px;
     margin-bottom: 25px;
-    color: #cd5c5c;
+    color: var(--cor-primaria);
 }
 
-.intro p{
-    font-size: 1.2rem;
+.intro p {
+    font-size: 1.1rem;
     text-align: justify;
     margin-bottom: 30px;
-    color: black;
-    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto-escuro);
+    font-family: var(--fonte-principal);
 }
 
-.info-section{
-    display: flex;
-    flex-wrap: wrap;
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--fonte-principal);
 }
 
 .image-container {
@@ -111,40 +147,215 @@ nav{
     max-width: 200px;
     height: 200px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: var(--borda-raio);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: var(--borda-raio);
 }
 
-.text-container{
+.text-container {
     max-width: 500px;
-    text-align: justify;
-    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    font-family: var(--fonte-principal);
+    padding: 0 10px;
 }
 
-.text-container h2{
-    font-size: 1.5rem;
+.text-container h2 {
+    font-size: 1.4rem;
     margin-bottom: 10px;
-    color: #cd5c5c;
+    color: var(--cor-primaria);
 }
 
-.text-container p{
+.text-container p {
     font-size: 1rem;
-    color: black;
+    color: var(--cor-texto-escuro);
     line-height: 1.6;
 }
 
-.separator{
+.separator {
     width: 80%;
     height: 1px;
-    background-color: #cd5c5c;
+    background-color: var(--cor-primaria);
     margin: 20px auto;
     border-radius: 50px;
-    margin-bottom:35px;
+    margin-bottom: 35px;
+}
+
+/* Menu mobile (hamburger) */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--cor-texto-claro);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 992px) {
+    nav {
+        justify-content: space-between;
+        padding: 10px 25px;
+    }
+    
+    .menu a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .loja a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .background {
+        margin-top: 300px;
+        padding: 25px;
+    }
+    
+    .info-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .image-container {
+        max-width: 180px;
+        height: 180px;
+    }
+    
+    .text-container {
+        padding: 0 5px;
+    }
+    
+    .content h1 {
+        font-size: 1.4rem;
+    }
+    
+    .intro p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        position: relative;
+    }
+    
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .menu a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .loja {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .loja a {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .background {
+        margin-top: 250px;
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-container, .text-container {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .text-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .text-container h2 {
+        font-size: 1.3rem;
+    }
+    
+    .content h1 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        max-width: 100px;
+    }
+    
+    .background {
+        margin-top: 220px;
+        padding: 15px;
+    }
+    
+    .content h1 {
+        font-size: 1.2rem;
+    }
+    
+    .intro p {
+        font-size: 0.9rem;
+    }
+    
+    .text-container h2 {
+        font-size: 1.1rem;
+    }
+    
+    .text-container p {
+        font-size: 0.9rem;
+    }
+    
+    .image-container {
+        height: 160px;
+    }
+    
+    .separator {
+        margin: 15px auto;
+    }
 }

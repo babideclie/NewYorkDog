@@ -7,15 +7,20 @@
     <link rel="stylesheet" href="contato.css">
     <title>Contato</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <img src="logo_350px.png" alt="logo" width="115" height="auto">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="logo_350px.png" alt="logo" width="115" height="auto">
+                </div>
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <div class="menu">
+            <div class="menu" id="mobileMenu">
                 <a href="index.html">Home</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="explore.html">Explore</a>
@@ -33,10 +38,20 @@
             <p>Ficou alguma dúvida ou quer fotos de mais modelinhos? Entre em contato conosco pelo WhatsApp:</p>
             <div class="icons">
                 <a href="https://wa.me/+5531994688401?text=Ol%C3%A1!%20Assim%20que%20poss%C3%ADvel%2C%20entraremos%20em%20contato." target="_blank">
-                    <i class='bx bxl-whatsapp' style="font-size: 55px; color: #cd5c5c;"></i>
-                  </a>                  
+                    <i class='bx bxl-whatsapp'></i>
+                </a>                  
             </div>
         </div>
     </div>
+
+    <script>
+        // Menu móvel
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

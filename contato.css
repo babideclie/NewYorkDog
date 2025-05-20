@@ -2,73 +2,111 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Mai&display=swap');
 
-*{
+/* Variáveis globais */
+:root {
+    --cor-primaria: #cd5c5c;
+    --cor-texto-claro: #fff;
+    --cor-texto-escuro: #000;
+    --bg-nav: rgba(0, 0, 0, 0.962);
+    --bg-conteudo: rgba(255, 255, 255, 0.9);
+    --sombra-padrao: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    --borda-raio: 10px;
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)) , url(NYD.jpg);
+body {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url(NYD.jpg);
     background-size: cover;
     background-attachment: fixed;
+    font-family: var(--fonte-principal);
+    min-height: 100vh;
 }
 
-header{
+/* Cabeçalho e Navegação */
+header {
     width: 100%;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    height: auto;
+    min-height: 70px;
+    font-family: var(--fonte-principal);
     position: fixed;
+    z-index: 10;
 }
 
-nav{
+nav {
     width: 100%;
-    height: 100px;
-    color: #fff;
+    height: auto;
+    min-height: 70px;
+    color: var(--cor-texto-claro);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(0, 0, 0, 0.962);
+    background: var(--bg-nav);
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
-.logo{
+.logo {
     font-size: 2em;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
 }
 
-.menu a{
+.logo img {
+    max-width: 115px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto-claro);
+    padding: 8px 15px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-.menu a:hover{
-    border: 1px solid indianred;
+.menu a:hover {
+    border: 1px solid var(--cor-primaria);
     background: transparent;
 }
 
-.loja a{
+.loja a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto-claro);
+    padding: 8px 15px;
+    font-size: 18px;
     border-radius: 8px; 
-    background: indianred;
+    background: var(--cor-primaria);
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-.loja a:hover{
-    border: 1px solid indianred;
+.loja a:hover {
+    border: 1px solid var(--cor-primaria);
     background: transparent;
 }
 
-.content{
-    background-color: rgba(255, 255, 255, 0.9);
+/* Conteúdo */
+.content {
+    background-color: var(--bg-conteudo);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: var(--borda-raio);
     max-width: 900px;
-    width: 100%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    box-shadow: var(--sombra-padrao);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,7 +117,7 @@ nav{
 .contact-container {
     position: relative;
     text-align: center;
-    padding: 50px;
+    padding: 40px 20px;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -88,14 +126,185 @@ nav{
     font-size: 1.5em;
     margin-top: 10px;
     margin-bottom: 25px;
-    color: #cd5c5c;
-    font-family: 'Poppins', sans-serif;
+    color: var(--cor-primaria);
+    font-family: var(--fonte-principal);
 }
 
 .contact-container p {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: black;
-    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto-escuro);
+    font-family: var(--fonte-principal);
 }
 
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icons a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.1);
+}
+
+.icons i {
+    font-size: 55px;
+    color: var(--cor-primaria);
+}
+
+/* Menu mobile (hamburger) */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--cor-texto-claro);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 992px) {
+    nav {
+        justify-content: space-between;
+        padding: 10px 25px;
+    }
+    
+    .menu a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .loja a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .content {
+        margin-top: 5%;
+        padding: 25px;
+    }
+    
+    .contact-container {
+        padding: 30px 15px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.4em;
+    }
+    
+    .contact-container p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        position: relative;
+    }
+    
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .menu a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .loja {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .loja a {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .content {
+        width: 95%;
+        padding: 20px;
+        margin-top: 8%;
+    }
+    
+    .contact-container {
+        padding: 25px 10px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.3em;
+    }
+    
+    .contact-container p {
+        font-size: 1em;
+    }
+    
+    .icons i {
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        max-width: 100px;
+    }
+    
+    .content {
+        padding: 15px;
+        margin-top: 15%;
+    }
+    
+    .contact-container {
+        padding: 20px 5px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    .contact-container p {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+    
+    .icons i {
+        font-size: 42px;
+    }
+}

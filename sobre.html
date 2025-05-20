@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sobre.css">
     <title>Sobre</title>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <img src="logo_350px.png" alt="logo" width="115" height="auto">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="logo_350px.png" alt="logo" width="115" height="auto">
+                </div>
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <div class="menu">
+            <div class="menu" id="mobileMenu">
                 <a href="index.html">Home</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="explore.html">Explore</a>
@@ -29,8 +35,9 @@
             <div class="intro">
                 <h1>Bem-vindo à Pet Alternativo!</h1>
                 <p>
-                    Somos uma empresa 100% brasileira, apaixonada por transformar o banho e tosa em um momento especial. Fornecemos laços e gravatas de alta qualidade para petshops de todo o Brasil, ajudando donos de banho e tosa a encantar seus clientes e fortalecer seus negócios.<br>
-                    <br>
+                    Somos uma empresa 100% brasileira, apaixonada por transformar o banho e tosa em um momento especial. Fornecemos laços e gravatas de alta qualidade para petshops de todo o Brasil, ajudando donos de banho e tosa a encantar seus clientes e fortalecer seus negócios.
+                </p>
+                <p>
                     No mundo pet, cada detalhe conta! Nossos laços e gravatas são o toque final perfeito para deixar os cãezinhos ainda mais charmosos após o banho e tosa. Com designs variados, materiais de alta qualidade e preços que cabem no bolso, nossos produtos são pensados para ajudar seu petshop a se destacar. Encante os tutores, ganhe sorrisos e faça seus clientes voltarem sempre!
                 </p>
                     
@@ -40,7 +47,7 @@
             <div class="separator"></div>
             <div class="info-section">
                 <div class="image-container">
-                    <img src="imagens/anilha.jpeg" alt="">
+                    <img src="imagens/anilha.jpeg" alt="Anilha de identificação">
                 </div>
                 <div class="text-container">
                     <h2>Qualidade que impressiona:</h2>
@@ -48,7 +55,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/money.jpg" alt="">
+                    <img src="imagens/money.jpg" alt="Economia">
                 </div>
                 <div class="text-container">
                     <h2>Preço que cabe no bolso:</h2>
@@ -56,7 +63,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/business.webp" alt="">
+                    <img src="imagens/business.webp" alt="Negócios">
                 </div>
                 <div class="text-container">
                     <h2>Compromisso com você:</h2>
@@ -64,7 +71,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/love.jpg" alt="">
+                    <img src="imagens/love.jpg" alt="Amor pelos pets">
                 </div>
                 <div class="text-container">
                     <h2>Paixão por pets:</h2>
@@ -76,7 +83,13 @@
     </div>
 
     <script>
-
+        // Menu móvel
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>

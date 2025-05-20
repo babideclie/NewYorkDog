@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sobre.css">
     <title>Sobre</title>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <img src="logo_350px.png" alt="logo" width="115" height="auto">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="logo_350px.png" alt="logo" width="115" height="auto">
+                </div>
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <div class="menu">
+            <div class="menu" id="mobileMenu">
                 <a href="index.html">Home</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="explore.html">Explore</a>
@@ -30,7 +36,7 @@
                 <h1>Estilo e Charme para Todo Pet!</h1>
                 <p>
                     Dê um toque especial a cada banho e tosa com nossa coleção de laços e gravatas! Temos uma variedade incrível de cores, estampas e tamanhos, perfeitos para cãezinhos de todos os estilos – dos clássicos aos mais fashion.
-                    Feitos com materiais de alta qualidade, nossos produtos são duráveis, confortáveis e garantem aquele “uau” dos tutores.
+                    Feitos com materiais de alta qualidade, nossos produtos são duráveis, confortáveis e garantem aquele "uau" dos tutores.
                     Transforme seu petshop num sucesso com pacotes pensados pra você!
                 </p>
 
@@ -40,7 +46,7 @@
             <div class="separator"></div>
             <div class="info-section">
                 <div class="image-container">
-                    <img src="imagens/neon4.jpg" alt="">
+                    <img src="imagens/neon4.jpg" alt="Laços neon coloridos">
                 </div>
                 <div class="text-container">
                     <h2>Acessórios de todos os tipos:</h2>
@@ -48,7 +54,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/lecar.jpg" alt="">
+                    <img src="imagens/lecar.jpg" alt="Box de acessórios">
                 </div>
                 <div class="text-container">
                     <h2>Box de acessórios:</h2>
@@ -56,7 +62,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/trança.jpg" alt="">
+                    <img src="imagens/tranca.jpg" alt="Acessórios diferenciados">
                 </div>
                 <div class="text-container">
                     <h2>Prefere algo diferente?</h2>
@@ -64,7 +70,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="imagens/miniflor.jpg" alt="">
+                    <img src="imagens/miniflor.jpg" alt="Mini laços para penteados">
                 </div>
                 <div class="text-container">
                     <h2>Lacinho para penteados:</h2>
@@ -80,7 +86,13 @@
     </div>
 
     <script>
-
+        // Menu móvel
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>

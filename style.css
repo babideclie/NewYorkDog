@@ -1,96 +1,241 @@
 @charset "UTF-8";
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Mai&display=swap');
 
-*{
+/* Reset e variáveis globais */
+:root {
+    --cor-destaque: indianred;
+    --cor-texto: #fff;
+    --bg-nav: rgba(0, 0, 0, 0.962);
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)) , url(NYD.jpg);
+body {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url(NYD.jpg);
     background-size: cover;
     background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
 }
 
-header{
+/* Layout principal */
+header {
     width: 100%;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
     position: fixed;
     z-index: 4;
 }
 
-nav{
+/* Navegação */
+nav {
     width: 100%;
-    height: 100px;
-    color: #fff;
+    height: auto;
+    min-height: 70px;
+    color: var(--cor-texto);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(0, 0, 0, 0.962);
+    background: var(--bg-nav);
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
-.logo{
+.logo {
     font-size: 2em;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
 }
 
-.menu a{
+.logo img {
+    max-width: 115px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto);
+    padding: 8px 15px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-.menu a:hover{
-    border: 1px solid indianred;
+.menu a:hover {
+    border: 1px solid var(--cor-destaque);
     background: transparent;
 }
 
-.loja a{
+.loja a {
     text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+    color: var(--cor-texto);
+    padding: 8px 15px;
+    font-size: 18px;
     border-radius: 8px; 
-    background: indianred;
+    background: var(--cor-destaque);
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-.loja a:hover{
-    border: 1px solid indianred;
+.loja a:hover {
+    border: 1px solid var(--cor-destaque);
     background: transparent;
 }
 
-.h-text{
+/* Texto principal */
+.h-text {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 90%;
     max-width: 650px;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #fff;
+    color: var(--cor-texto);
+    padding: 15px;
 }
 
-.h-text span{
+.h-text span {
     letter-spacing: 5px;
+    font-size: 16px;
 }
 
-.h-text h1{
+.h-text h1 {
     font-size: 3.5em;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
-.h-text a{
+.h-text a {
+    display: inline-block;
     text-decoration: none;
-    background: indianred;
+    background: var(--cor-destaque);
     padding: 10px 20px;
-    color: #fff;
+    color: var(--cor-texto);
     letter-spacing: 5px;
-    transition: 0.4s;
+    transition: all 0.4s ease;
+    margin-top: 10px;
 }
 
-.h-text a:hover{
-    border: 1px solid indianred;
+.h-text a:hover {
+    border: 1px solid var(--cor-destaque);
     background: transparent;
+}
+
+/* Menu mobile (hamburger) */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--cor-texto);
+}
+
+/* Media Queries */
+@media screen and (max-width: 992px) {
+    nav {
+        justify-content: space-between;
+        padding: 10px 30px;
+    }
+    
+    .menu a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .loja a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .h-text h1 {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        position: relative;
+    }
+    
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .menu a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .loja {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .loja a {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .h-text span {
+        font-size: 14px;
+    }
+    
+    .h-text h1 {
+        font-size: 2.5em;
+    }
+    
+    .h-text a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .h-text h1 {
+        font-size: 2em;
+    }
+    
+    .h-text span {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+    
+    .h-text a {
+        font-size: 12px;
+        letter-spacing: 3px;
+        padding: 8px 12px;
+    }
+}
